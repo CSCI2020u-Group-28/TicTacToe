@@ -1,0 +1,4 @@
+1 - The game is played on a grid of 3x3 squares.
+2 - You are X and the computer is O. PLayers take turn putting their marks in empty squares.
+3 - The first player to get 3 of their marks in a row (up, down, arcoss, or diagonally) is the winner.
+4 - When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
