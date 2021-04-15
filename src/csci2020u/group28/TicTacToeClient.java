@@ -22,15 +22,23 @@ public class TicTacToeClient extends Application {
   static Button resetGameButton;
   TextArea textArea;
 
+  /*
+   * Sets up various buttons and the scene
+   */
   @Override
   public void start(Stage primaryStage) throws Exception {
     window = primaryStage;
     window.setTitle("TicTacToe Main Menu");
     Button gameButton = new Button("Play Game");
+    gameButton.setPrefWidth(200);
     Button ruleButton = new Button("How to Play");
+    ruleButton.setPrefWidth(200);
     Button creditButton = new Button("Credit");
+    creditButton.setPrefWidth(200);
     Button exitButton = new Button("Exit");
+    exitButton.setPrefWidth(200);
     backToMenuButton = new Button("Back to Main Menu");
+    backToMenuButton.setPrefWidth(200);
 
     gameButton.setOnAction(e -> {
       openGameScene();
