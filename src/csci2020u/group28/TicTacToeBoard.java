@@ -20,8 +20,8 @@ public class TicTacToeBoard {
     private static int moveCounter = 0;
 
     /**
-     * This class manages the tictactoe tiles so the player is able
-     * to make their moves by clicking on the grid of their choice.
+     * This class manages the tictactoe tiles so the player is able to make their
+     * moves by clicking on the grid of their choice.
      */
     private static class Tile extends StackPane {
         private Text text = new Text();
@@ -31,11 +31,11 @@ public class TicTacToeBoard {
             border.setFill(null);
             border.setStroke(Color.BLACK);
 
-            text.setFont(Font.font(20));
+            text.setFont(Font.font(80));
 
             setAlignment(Pos.CENTER);
             getChildren().addAll(border, text);
-            
+
             setOnMouseClicked(e -> {
                 if (!playable) {
                     return;
@@ -48,17 +48,15 @@ public class TicTacToeBoard {
 
                     drawX();
                     moveCounter++;
-                    System.out.println(moveCounter);
                     turnX = false;
                     checkState();
-                    
+
                 } else if (e.getButton() == MouseButton.SECONDARY) {
                     if (turnX) {
                         return;
                     }
                     drawO();
                     moveCounter++;
-                    System.out.println(moveCounter);
                     turnX = true;
                     checkState();
                 }
@@ -67,7 +65,7 @@ public class TicTacToeBoard {
 
         /**
          * This function return the symbol of the board tile as a String.
-         *  
+         * 
          * @return the symbol of the board as a String (ie. X or O)
          */
         public String getValue() {
@@ -86,8 +84,8 @@ public class TicTacToeBoard {
     }
 
     /**
-     * This class will check the condition of the board tiles to see the state
-     * of the game and will update the board if the game is complete (ie. player won).
+     * This class will check the condition of the board tiles to see the state of
+     * the game and will update the board if the game is complete (ie. player won).
      */
     private static class TileCell {
         private Tile[] tiles;
@@ -104,11 +102,11 @@ public class TicTacToeBoard {
             return tiles[0].getValue().equals(tiles[1].getValue()) && tiles[0].getValue().equals(tiles[2].getValue());
         }
     }
-    
+
     /**
-     * This function will create the game by drawing the 3x3 board and will
-     * update the board by adding the player's input into the cell to check
-     * the state of the game.
+     * This function will create the game by drawing the 3x3 board and will update
+     * the board by adding the player's input into the cell to check the state of
+     * the game.
      * 
      * @return the game board
      */
@@ -145,9 +143,9 @@ public class TicTacToeBoard {
     }
 
     /**
-     * This function will check the stage of the game by using the isComplete() function
-     * to declare the player as the winner or tying the game if the board is full and 
-     * no one has won.
+     * This function will check the stage of the game by using the isComplete()
+     * function to declare the player as the winner or tying the game if the board
+     * is full and no one has won.
      */
     public static void checkState() {
         for (TileCell cell : tileCell) {
@@ -155,7 +153,7 @@ public class TicTacToeBoard {
                 playable = false;
                 TicTacToeClient.postGameStage("YOU WON!");
                 break;
-            } else if(!cell.isComplete() && moveCounter == 9) {
+            } else if (!cell.isComplete() && moveCounter == 9) {
                 playable = false;
                 TicTacToeClient.postGameStage("GAME TIED!");
                 break;
@@ -164,8 +162,8 @@ public class TicTacToeBoard {
     }
 
     /**
-     * This function will reset the game board after the game by reseting the
-     * cells of the tiles and reseting the player's turn.
+     * This function will reset the game board after the game by reseting the cells
+     * of the tiles and reseting the player's turn.
      */
     public static void resetBoard() {
         for (int i = 0; i < 3; i++) {
