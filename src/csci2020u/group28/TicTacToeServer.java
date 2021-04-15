@@ -75,6 +75,7 @@ public class TicTacToeServer extends Frame implements Runnable {
         }
     }
 
+    //listening to client's request to join th server
     private void listening() {
         Socket socket = null;
         try {
@@ -88,6 +89,7 @@ public class TicTacToeServer extends Frame implements Runnable {
         }
     }
 
+    //connecting to the server
     private boolean connect() {
         try {
             socket = new Socket(ip, port);
@@ -102,15 +104,7 @@ public class TicTacToeServer extends Frame implements Runnable {
         return true;
     }
 
-    public static void main(String[] args) {
-        try {
-            TicTacToeServer server = new TicTacToeServer(port);
-            server.handleRequests();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    //checks if the opponent disconnected
     private void check() {
         if (errors >= 10) {
             opponentAfk = true;
@@ -123,6 +117,15 @@ public class TicTacToeServer extends Frame implements Runnable {
         }
         else{
             errors++;
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            TicTacToeServer server = new TicTacToeServer(port);
+            server.handleRequests();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
