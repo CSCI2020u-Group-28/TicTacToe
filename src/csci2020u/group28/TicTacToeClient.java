@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 /**
  * This is the main client ui
- * 
  */
 public class TicTacToeClient extends Application {
 
